@@ -15,7 +15,6 @@ import webbrowser
 import MySQLdb
 import sys
 import time
-import datetime as dt
 
 HOST = '****' 
 ADR = '****'
@@ -71,7 +70,7 @@ def reset_btn():
 	
 def update_btn():
 	sql_commit = "INSERT INTO wp_da_lt_table_item (table_id, subject, custom_stat_1) VALUES (%s, %s, %s)"
-	id=23 		# genpact_2
+	id=23 		# Which client leaderboard
 	val_commit = (id, driver_name, lap_time)	
 	execute_sql_commit(sql_commit, val_commit)
 	reset_btn()
@@ -117,7 +116,7 @@ def update_data():
 		window['_OUTPUT1_'].update(results)
 '''
 now = time.time()
-if now < 1588291200:
+if now < 1588291200:  # Automatically disables tool after set period
 
 	while True:  
 		event, values = window.read(timeout=3000)       
